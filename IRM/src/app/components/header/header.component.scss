@@ -1,7 +1,30 @@
+.header-wrapper{
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
 .logo{
     max-width: 8rem;
     cursor: pointer;
 }
 .header{
+    margin: auto;
+    max-width: 60rem;
     padding-top: 0.75rem;
+    display: flex;
+    justify-content: space-between;
+}
+.header-menu{
+    display: flex;
+    padding-top: 0.75rem;
+}
+.header-menu-item{
+    cursor: pointer;
+    font-size: 0.8rem;
+    margin-right: 2.5rem;
+    font-family: 'Montserrat-Regular';
+    color: #4480F3;
+}
+.header-menu-item-user-info{
+    color: gray;
 }

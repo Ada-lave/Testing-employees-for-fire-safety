@@ -1,0 +1,51 @@
+.main-container-wrapper{
+    padding-top: 2rem;
+}
+.theme-grid{
+    margin-top: 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 19rem);
+    grid-gap: 1em 20px;
+}
+.theme{
+    min-width: 1fr;
+    height: 6.25rem;
+}
+.theme-title{
+    font-family: 'Montserrat-Regular';
+    font-size: 1.5rem;
+}
+.read-button{
+    cursor: pointer;
+    margin-right: 0.5rem;
+    background: #447CCD;
+    color: #fff;
+    font-family: 'Montserrat-Medium';
+    border: none;
+    min-width: 6.25rem;
+    height: 2rem;
+    border-radius: 4px;
+}
+.test-button{
+    transition: 0.3s;
+    cursor: pointer;
+    background: #2075F1;
+    color: #fff;
+    font-family: 'Montserrat-Medium';
+    border: none;
+    min-width: 12rem;
+    height: 2rem;
+    border-radius: 4px;
+}
+.test-button:hover{
+    transition: 0.3s;
+    background: #498cf1;
+}
+.read-button:hover{
+    transition: 0.3s;
+    background: #6098e6;
+}
+.theme-buttons{
+    margin-top: 1rem;
+    display: flex;
+}

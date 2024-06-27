@@ -1,9 +1,26 @@
-<div class="main-container">
-    <header  class="header">
- 
-            <img routerLink="/home" src="assets/imgs/logo.png" alt="" class="logo">
+
+<div class="header-wrapper">
+        <header class="header">
+                <img routerLink="/home" src="assets/imgs/logo.png" alt="" class="logo">
+                <nav class="header-menu">
+                    <div class="header-menu-item">Документы</div>
+                    <div class="header-menu-item">Инструктаж</div>
+                    <div routerLink="/tests" class="header-menu-item">Темы</div>
+                    <div class="header-menu-item">Памятки</div>
+                    <div class="header-menu-item header-menu-item-user">
+                        <div class="header-menu-item-user-info">
+                            <ng-container *ngIf="this.user !==''">
+                                <p>{{this.user}}</p>
+                                <p>Выход</p>
+                            </ng-container>
+                            <ng-container *ngIf="this.user ==''">
+                                <p>Вход</p>
+                            </ng-container>
+                        </div>
+                    </div>
+                </nav>
+        </header>
+   
     
-    
-    </header>
 </div>
 

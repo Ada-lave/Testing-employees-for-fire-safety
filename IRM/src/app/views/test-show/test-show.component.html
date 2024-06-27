@@ -1,0 +1,86 @@
+<main class="main">
+    <section class="content">
+     <div class="main-container-wrapper">
+         <div class="main-container">
+             <span class="title-middle">
+                Поражающие факторы источников чрезвычайных ситуаций, характерных для мест расположения и производственной деятельности
+                Центра, а также оружия массового поражения и других видов оружия.
+             </span>
+             <div class="question">
+                
+                <div class="answer">
+                    <form>
+                        <ng-container *ngFor="let question of questions; let i = index">
+                            <div class="test-question title-small">Укажите, что является Чрезвычайной ситуацией</div>
+                            <fieldset class="radio-group" id="group{{i+1}}">
+                                <div class="radio-group-item">
+                                    <input class="radio-group-input" id="group{{i+1}}q1" type="radio" value="value1" name="group{{i+1}}">
+                                    <label for="group{{i+1}}q1">
+                                        <div class="answer-text">
+                                            Это опасное происшествие на промышленном объекте или на
+                                            транспорте, создающее угрозу жизни и здоровью людей и приводящее к
+                                            разрушению производственных помещений и сооружений, повреждению
+                                            или уничтожению оборудования, механизмов, транспортных средств, сырья
+                                            готовой
+                                            продукции,
+                                            к
+                                            нарушению
+                                            производственного
+                                            нанесению ущерба окружающей среде.
+                                        </div>
+                                    </label>   
+                                </div>
+    
+                                <div class="radio-group-item">
+                                    <input id="{{i+1}}q2" type="radio" value="2" name="group{{i+1}}">
+                                    <label for="{{i+1}}q2">
+                                        <div class="answer-text">
+                                            Это разрушительное природное и природно-антропогенное явление, в
+                                            результате которого может возникнуть или возникает угроза жизни и
+                                            здоровью людей, происходит разрушение или уничтожение материальных
+                                            ценностей, элементов окружающей природной среды.
+                                        </div>
+                                    </label>   
+                                </div>
+    
+                                <div class="radio-group-item">
+                                    <input id="{{i+1}}q3" type="radio" value="2" name="group{{i+1}}">
+                                    <label for="{{i+1}}q3">
+                                        <div class="answer-text">
+                                            Это разрушительное природное и природно-антропогенное явление, в
+                                            результате которого может возникнуть или возникает угроза жизни и
+                                            здоровью людей, происходит разрушение или уничтожение материальных
+                                            ценностей, элементов окружающей природной среды.
+                                        </div>
+                                    </label>   
+                                </div>
+    
+                                <div class="radio-group-item">
+                                    <input id="{{i+1}}q4" type="radio" value="2" name="group{{i+1}}">
+                                    <label for="{{i+1}}q4">
+                                        <div class="answer-text">
+                                            Это крупная авария, повлекшая за собой человеческие жертвы, ущерб
+                                            здоровью людей и разрушения или уничтожение объектов и других
+                                            материальных ценностей в значительных размерах, а также приведшая к
+                                            серьезному ущербу окружающей среды.
+                                        </div>
+                                    </label>   
+                                </div>
+                               <div class="questions-number">{{i+1}} из {{questions.length}}</div>
+                                <div class="border-block"></div>
+                             
+                            </fieldset>
+                        </ng-container>
+                        <div class="submit-test-wrapper">
+                            <button routerLink="/home" class="submit-test" type="button">Завершить</button>
+                        </div>
+
+                      </form>
+                </div>
+             </div>
+          </div>
+     </div>
+         
+    </section>
+ </main>
+ 
