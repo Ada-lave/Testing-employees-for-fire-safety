@@ -3,15 +3,14 @@
      <div class="main-container-wrapper">
          <div class="main-container">
              <span class="title-middle">
-                Поражающие факторы источников чрезвычайных ситуаций, характерных для мест расположения и производственной деятельности
-                Центра, а также оружия массового поражения и других видов оружия.
+                {{ test.title }}
              </span>
              <div class="question">
-                
+
                 <div class="answer">
                     <form>
-                        <ng-container *ngFor="let question of questions; let i = index">
-                            <div class="test-question title-small">Укажите, что является Чрезвычайной ситуацией</div>
+                        <ng-container *ngFor="let question of test.questions; let i = index">
+                            <div class="test-question title-small">{{ question.title }}</div>
                             <fieldset class="radio-group" id="group{{i+1}}">
                                 <div class="radio-group-item">
                                     <input class="radio-group-input" id="group{{i+1}}q1" type="radio" value="value1" name="group{{i+1}}">
@@ -28,9 +27,9 @@
                                             производственного
                                             нанесению ущерба окружающей среде.
                                         </div>
-                                    </label>   
+                                    </label>
                                 </div>
-    
+
                                 <div class="radio-group-item">
                                     <input id="{{i+1}}q2" type="radio" value="2" name="group{{i+1}}">
                                     <label for="{{i+1}}q2">
@@ -40,9 +39,9 @@
                                             здоровью людей, происходит разрушение или уничтожение материальных
                                             ценностей, элементов окружающей природной среды.
                                         </div>
-                                    </label>   
+                                    </label>
                                 </div>
-    
+
                                 <div class="radio-group-item">
                                     <input id="{{i+1}}q3" type="radio" value="2" name="group{{i+1}}">
                                     <label for="{{i+1}}q3">
@@ -52,9 +51,9 @@
                                             здоровью людей, происходит разрушение или уничтожение материальных
                                             ценностей, элементов окружающей природной среды.
                                         </div>
-                                    </label>   
+                                    </label>
                                 </div>
-    
+
                                 <div class="radio-group-item">
                                     <input id="{{i+1}}q4" type="radio" value="2" name="group{{i+1}}">
                                     <label for="{{i+1}}q4">
@@ -64,11 +63,11 @@
                                             материальных ценностей в значительных размерах, а также приведшая к
                                             серьезному ущербу окружающей среды.
                                         </div>
-                                    </label>   
+                                    </label>
                                 </div>
-                               <div class="questions-number">{{i+1}} из {{questions.length}}</div>
+                               <div class="questions-number">{{i+1}} из {{test.questions.length}}</div>
                                 <div class="border-block"></div>
-                             
+
                             </fieldset>
                         </ng-container>
                         <div class="submit-test-wrapper">
@@ -80,7 +79,6 @@
              </div>
           </div>
      </div>
-         
+
     </section>
  </main>
- 
