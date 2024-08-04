@@ -3,7 +3,7 @@ import { HomeComponent } from './views/home/home.component';
 import { TestsComponent } from './views/tests/tests.component';
 import { TestShowComponent } from './views/test-show/test-show.component';
 import { DocumentsComponent } from './views/documents/documents.component';
-import { DocumentsCreateComponent } from './views/documents-create/documents-create.component';
+import { ThemeShowComponent } from './views/theme-show/theme-show.component';
 export const routes: Routes = [
     {
         path:'home', component:HomeComponent,
@@ -15,10 +15,10 @@ export const routes: Routes = [
         path:'tests', component:TestsComponent
     },
     {
-        path: 'documents',component:DocumentsComponent
+        path:'theme-show/:id', component:ThemeShowComponent
     },
     {
-        path: 'create',component:DocumentsCreateComponent
+        path: 'documents',component:DocumentsComponent
     },
     {
         path:'**', component:HomeComponent

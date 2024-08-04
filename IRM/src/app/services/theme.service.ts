@@ -14,4 +14,7 @@ export class ThemeService {
   getThemes() {
     return this.http.get<Theme[]>(`${environments.backProtocol}://${environments.backHost}:${environments.backPort}/api/v1/themes`)
   }
+  getThemesById(id:string) {
+    return this.http.get<Theme[]>(`${environments.backProtocol}://${environments.backHost}:${environments.backPort}/api/v1/themes/${id}`)
+  }
 }

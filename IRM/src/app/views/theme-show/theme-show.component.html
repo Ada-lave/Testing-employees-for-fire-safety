@@ -1,0 +1,39 @@
+<main class="main">
+    <section class="content">
+     <div class="main-container-wrapper">
+         <div class="main-container">
+             <span *ngIf="theme" class="title-middle">
+                {{theme.title}}
+             </span>
+             <div>
+                <ng-container   *ngFor="let document of documents">
+                    {{document.path}}
+                <pdf-viewer
+              
+                src="http://192.144.14.74:8100/{{document.path}}"
+                [render-text]="true"
+                [original-size]="false"
+                style="width: 400px; height: 500px"
+                >
+                </pdf-viewer>
+                </ng-container>
+                
+             </div>
+             <span *ngIf="theme" class="title-middle video-header">
+                Видеоролики
+             </span>
+             <div class="video-container">
+               
+                 <ng-container>
+                    <div>
+                        <video controls="controls" class="video" *ngFor="let video of videos" src="http://192.144.14.74:8100/{{video.path}}"></video>
+                    </div>
+                 </ng-container>
+               
+             </div>
+             
+          </div>
+     </div>
+ 
+    </section>
+ </main>

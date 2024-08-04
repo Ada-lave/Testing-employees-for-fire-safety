@@ -8,11 +8,11 @@
             <div class="theme-grid">
                 <div *ngFor="let theme of themes; let i = index" class="theme">
                     <div class="theme-title">
-                        Тема {{i+1}}
+                        {{theme.title}}
                     </div>
                     <div class="theme-buttons">
-                        <button class="read-button">Читать</button>
-                        <button routerLink="/test/{{i+1}}" class="test-button">тест</button>
+                        <button routerLink="/theme-show/{{i+1}}" class="read-button">Читать</button>
+                        <button routerLink="/test/{{i+1}}" class="test-button">Тест</button>
                     </div>
                 </div>
 

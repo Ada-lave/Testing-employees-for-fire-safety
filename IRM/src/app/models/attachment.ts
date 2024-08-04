@@ -3,5 +3,5 @@ export interface Attachment {
   name: string
   path: string
   theme: number
-  file_type: number
+  file_type: any
 }
