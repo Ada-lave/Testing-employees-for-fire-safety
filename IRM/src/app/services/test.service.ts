@@ -13,6 +13,6 @@ export class TestService {
   ) { }
 
   getTestById(id: number) {
-    return this.http.get<Test>(`${environments.backProtocol}://${environments.backHost}://${environments.backPort}/api/v1/tests/${id}`)
+    return this.http.get<Test>(`${environments.backProtocol}://${environments.backHost}:${environments.backPort}/api/v1/tests/${id}`)
   }
 }

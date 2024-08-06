@@ -7,32 +7,32 @@
              </span>
              <div>
                 <ng-container   *ngFor="let document of documents">
-                 
+
                 <pdf-viewer
-                src="http://192.144.14.74:8100/{{document.path}}"
+                src="{{back}}{{document.path}}"
                 [render-text]="true"
                 [original-size]="false"
                 style="width: 70%; height: 50rem; margin-top: 2rem; margin-left: auto; margin-right: auto;"
                 >
                 </pdf-viewer>
                 </ng-container>
-                
+
              </div>
              <span *ngIf="theme" class="title-middle video-header">
                 Видеоролики
              </span>
              <div class="video-container">
-               
+
                  <ng-container>
                     <div>
                         <video controls="controls" class="video" *ngFor="let video of videos" src="http://192.144.14.74:8100/{{video.path}}"></video>
                     </div>
                  </ng-container>
-               
+
              </div>
-             
+
           </div>
      </div>
- 
+
     </section>
  </main>
