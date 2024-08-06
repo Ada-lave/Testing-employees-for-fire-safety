@@ -24,7 +24,7 @@ export class ThemeShowComponent implements OnInit{
   public theme!:any
   public videos:any = []
   public documents:any = []
-  public back = `${environments.backProtocol}://${environments.backHost}://${environments.backPort}/`
+  public back = `${environments.backProtocol}://${environments.backHost}:${environments.backPort}`
   getFilesAndSort(){
     this.theme.attachments.forEach((file:Attachment) => {
       console.log(file)
