@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TextRedactorComponent } from './text-redactor.component';
+import { DocumentsGridComponent } from './documents-grid.component';
 
-describe('TextRedactorComponent', () => {
-  let component: TextRedactorComponent;
-  let fixture: ComponentFixture<TextRedactorComponent>;
+describe('DocumentsGridComponent', () => {
+  let component: DocumentsGridComponent;
+  let fixture: ComponentFixture<DocumentsGridComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [TextRedactorComponent]
+      imports: [DocumentsGridComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(TextRedactorComponent);
+    fixture = TestBed.createComponent(DocumentsGridComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

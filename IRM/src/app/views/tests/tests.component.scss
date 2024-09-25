@@ -1,12 +1,14 @@
 .main-container-wrapper{
-    padding-top: 2rem;
+    padding-top: 1rem;
+    text-align: center;
 }
 .theme-grid{
-    margin-top: 2rem;
-    display: flex;
-    max-width: 100%;
-   flex-wrap: wrap;
-   gap: 2rem;
+  padding-top: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  padding-bottom: 2rem;
 }
 .theme{
     border-radius: 5px;
