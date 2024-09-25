@@ -1,0 +1,38 @@
+.document-wrapper{
+  min-height: 9rem;
+   border-radius: 5px;
+   cursor: pointer;
+   align-items: center;
+    padding-top: 2rem;
+    padding-bottom: 0.5em;
+    padding-right: 2rem;
+    border: 3px solid rgba(59, 63, 70, 0.1843137255);
+    flex: 1;
+    transition: 0.3s all;
+    font-family: 'Montserrat-Medium';
+    padding-left: 2rem;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 1rem;
+    margin: auto;
+}
+.document-wrapper:hover{
+  transition: 0.3s all;
+  border: 3px solid rgba(27, 109, 251, 0.449);
+  color: rgb(27, 109, 251);
+}
+.document-svg{
+  width: 2rem;
+}
+.document-name{
+  padding-top: 0.5rem;
+  display: flex;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+.document
+{
+  max-width: 117px;
+}
