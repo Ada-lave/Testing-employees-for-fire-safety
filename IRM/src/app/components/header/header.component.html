@@ -4,9 +4,9 @@
                 <img routerLink="/home" src="assets/imgs/logo.png" alt="" class="logo">
                 <nav class="header-menu">
                     <div routerLink="/documents" class="header-menu-item">Документы</div>
-                    <div class="header-menu-item">Инструктаж</div>
+                    <div routerLink="/briefings" class="header-menu-item">Инструктаж</div>
                     <div routerLink="/tests" class="header-menu-item">Темы</div>
-                    <div class="header-menu-item">Памятки</div>
+                    <div routerLink="/booklets" class="header-menu-item">Памятки</div>
                     <div class="header-menu-item header-menu-item-user">
                         <div class="header-menu-item-user-info">
                             <ng-container *ngIf="this.user !==''">

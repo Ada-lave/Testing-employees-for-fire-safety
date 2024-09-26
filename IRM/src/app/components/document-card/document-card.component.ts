@@ -12,5 +12,11 @@ import { RouterLink } from '@angular/router';
 })
 export class DocumentCardComponent {
   @Input() document!:IPdf
+  path!:string
+  ngOnChanges(){
+    if(this.document){
+      this.path = this.document.path.split('/static/uploads/')[1]
+    }
+  }
   constructor(){}
 }

@@ -5,17 +5,20 @@
              <span class="title-middle">
                 {{ test.title }}
              </span>
-             <div>
-              <select (input)="selectDepartament($event)" name="" id="">
-                <option value="">Выберите отдел</option>
+             <div class="select-container">
+              <span class="title-little">Выберите себя: </span>
+              <select class="select" (input)="selectDepartament($event)" name="" id="">
+                <option class="select-item" value="">Выберите отдел</option>
                 <ng-container *ngIf="departemnts">
-                  <option *ngFor="let departemnt of departemnts; let i = index" [value]="i"> {{departemnt.title}}</option>
+                  <option class="select-item" *ngFor="let departemnt of departemnts; let i = index" [value]="i"> {{departemnt.title}}</option>
                 </ng-container>
 
               </select>
 
-               <select *ngIf="selectedDeprtament" name="" id="">
-                <option value="">Выберите себя
+               <select (input)="selectUser($event)" *ngIf="selectedDeprtament" name="" id="">
+                <option class="select-item" value="">Выберите себя</option>
+                <option class="select-item" *ngFor="let user of selectedDeprtament.employes; let userIndex = index" [value]="userIndex"> {{user.fio}}</option>
+
               </select>
              </div>
 
@@ -45,11 +48,16 @@
 
 
                         </ng-container>
-                        <div class="submit-test-wrapper">
+                        <div *ngIf="selectedUser;" class="submit-test-wrapper">
                             <button (click)="submit()" class="submit-test" type="button">Завершить</button>
                         </div>
 
+                        <div *ngIf="!selectedUser" class="submit-test-wrapper">
+                            <button class="submit-test-disabled" type="button">Завершить</button>
+                        </div>
+
                       </form>
+                      <span class="error-message" *ngIf="!selectedUser">Выберите себя в начале теста для отправки результатов</span>
                 </div>
              </div>
           </div>

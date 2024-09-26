@@ -1,3 +1,4 @@
+import { SectionsService } from './../../services/sections.service';
 import { Attachment } from './../../models/attachment';
 import { Component, CUSTOM_ELEMENTS_SCHEMA, inject  } from '@angular/core';
 import { DocumentsGridComponent } from '../../components/documents-grid/documents-grid.component';
@@ -20,15 +21,23 @@ import { IPdf } from '../../models/pdf';
 })
 export class DocumentsComponent implements OnInit{
   themeService:ThemeService = inject(ThemeService)
+  sectionsService:SectionsService = inject(SectionsService)
   documents:IPdf[] = []
-  ngOnInit(): void {
-    this.themeService.getThemesById('1').pipe().subscribe((res:any)=>{
-      console.log(res)
-      for(let i =0; i < 10; i++){
-        this.documents.push(res.attachments[1])
-      }
-    })
 
+  findDocuments(documents:any){
+    console.log(documents)
+    documents.forEach((document:any) => {
+      if(document && document.name == 'Документы'){
+        console.log(document)
+        this.documents = document.attachments
+      }
+    });
+  }
+
+  ngOnInit(): void {
+    this.sectionsService.getAllSection().pipe().subscribe((res)=>{
+      this.findDocuments(res)
+    })
   }
 
 }

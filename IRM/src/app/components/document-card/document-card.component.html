@@ -1,5 +1,5 @@
 <div class="document">
-  <div routerLink="/theme-show/1" class="document-wrapper">
+  <div *ngIf="path" routerLink="/documentsShow/{{path}}/viwer" class="document-wrapper">
       <div style="background: gray; width: 3rem; height: 0.5rem;"></div>
       <div style="background: gray; width: 2rem; height: 0.5rem;"></div>
       <div style="background: gray; width: 3rem; height: 0.5rem;"></div>

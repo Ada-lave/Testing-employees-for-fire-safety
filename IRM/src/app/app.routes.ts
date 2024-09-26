@@ -4,6 +4,9 @@ import { TestsComponent } from './views/tests/tests.component';
 import { TestShowComponent } from './views/test-show/test-show.component';
 import { DocumentsComponent } from './views/documents/documents.component';
 import { ThemeShowComponent } from './views/theme-show/theme-show.component';
+import { DocumentsShowComponent } from './views/documents-show/documents-show.component';
+import { BriefingsComponent } from './views/briefings/briefings.component';
+import { BookletComponent } from './views/booklet/booklet.component';
 export const routes: Routes = [
     {
         path:'home', component:HomeComponent,
@@ -18,7 +21,16 @@ export const routes: Routes = [
         path:'theme-show/:id', component:ThemeShowComponent
     },
     {
-        path: 'documents',component:DocumentsComponent
+        path: 'documents', component:DocumentsComponent
+    },
+    {
+        path: 'briefings', component:BriefingsComponent
+    },
+    {
+        path: 'booklets', component:BookletComponent
+    },
+    {
+      path: 'documentsShow/:path/viwer',component:DocumentsShowComponent
     },
     {
         path:'**', component:HomeComponent
