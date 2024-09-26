@@ -1,8 +1,10 @@
+import { DepartmentService } from './../../services/department.service';
 import { Component, inject, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { TestService } from '../../services/test.service';
 import { Test } from '../../models/test';
+import { Department } from '../../models/department';
 @Component({
   selector: 'app-test-show',
   standalone: true,
@@ -19,19 +21,60 @@ export class TestShowComponent implements OnInit{
     private route: ActivatedRoute
   ) {}
   public testService: TestService = inject(TestService)
+  public departmentService:DepartmentService = inject(DepartmentService)
   public test!: Test
-
+  public departemnts:Department[] = []
+  public selectedDeprtament!:Department|any
+  public testCopy!:any
   getTest() {
     let id = this.route.snapshot.params["id"]
     this.testService.getTestById(id).subscribe((res: any) => {
-      console.log(res)
-      this.test = res
+      this.test = Object.assign({}, res)
+      this.testCopy = JSON.parse(JSON.stringify(this.test));
+      this.testCopy.questions.forEach((question:any)=>{
+        question.answers = []
+      })
+      console.log(this.testCopy)
+
     })
 
     console.log(this.test)
   }
+  getDepartament(){
+    this.departmentService.getDepartments({}).pipe().subscribe((res:Department[])=>{
+      this.departemnts = res
+    })
+  }
+
+  selectQuestion(event:any, question:number){
+    // console.log(this.test.questions[question],event.target.id)
+    this.test.questions[question].answers.forEach(answer => {
+      if(answer.id == event.target.id){
+        this.testCopy.questions[question].answers[0] = answer
+        console.log(this.testCopy)
+      }
+    });
+
+  }
+
+  selectDepartament(event:any){
+    console.log(this.departemnts[event.target.value])
+    if(this.departemnts[event.target.value]){
+      this.selectedDeprtament = this.departemnts[event.target.value]
+    }else{
+      this.selectedDeprtament = ""
+    }
+  }
+
+  submit(){
+    this.testCopy.employee_id = 1
+    this.testService.sendTest(this.testCopy).pipe().subscribe((res:any)=>{
+      console.log(res)
+    })
+  }
 
   ngOnInit(): void {
       this.getTest()
+      this.getDepartament()
   }
 }
