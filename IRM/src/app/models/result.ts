@@ -1,7 +1,7 @@
 export interface Result {
   id: number
-  user_id: number
-  test_id: number
+  user: number
+  test: number
   score: number
   total: number
 }

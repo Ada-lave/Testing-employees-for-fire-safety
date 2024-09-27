@@ -7,6 +7,7 @@ import { ThemeShowComponent } from './views/theme-show/theme-show.component';
 import { DocumentsShowComponent } from './views/documents-show/documents-show.component';
 import { BriefingsComponent } from './views/briefings/briefings.component';
 import { BookletComponent } from './views/booklet/booklet.component';
+import { ResultsComponent } from './views/results/results.component';
 export const routes: Routes = [
     {
         path:'home', component:HomeComponent,
@@ -31,6 +32,9 @@ export const routes: Routes = [
     },
     {
       path: 'documentsShow/:path/viwer',component:DocumentsShowComponent
+    },
+    {
+      path: 'results',component:ResultsComponent
     },
     {
         path:'**', component:HomeComponent

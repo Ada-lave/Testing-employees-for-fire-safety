@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { environments } from '../../../environments/environments';
 @Component({
   selector: 'app-header',
   standalone: true,
@@ -13,10 +14,11 @@ import { CommonModule } from '@angular/common';
 })
 export class HeaderComponent implements OnInit {
   public user: string = ''
+  adminRoute:string = `${environments.backProtocol}://${environments.backHost}:${environments.backPort}/admin`
   ngOnInit(): void {
     if(localStorage.getItem('user')){
       this.user = JSON.parse(localStorage.getItem('user') as string);
     }
-   
+
   }
 }

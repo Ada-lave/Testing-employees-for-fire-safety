@@ -4,8 +4,8 @@ import { Result } from '../models/result';
 import { environments } from '../../environments/environments';
 
 interface ResultQueryParams {
-  department_id?: number
-  test_id?: number
+  department_id?: number|string
+  test_id?: number|string
 }
 
 @Injectable({

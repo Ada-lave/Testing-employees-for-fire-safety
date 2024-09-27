@@ -7,13 +7,10 @@
                     <div routerLink="/briefings" class="header-menu-item">Инструктаж</div>
                     <div routerLink="/tests" class="header-menu-item">Темы</div>
                     <div routerLink="/booklets" class="header-menu-item">Памятки</div>
+                    <a class="header-menu-item" target="_blank"  href="{{adminRoute}}">Админ панель</a>
+                    <div routerLink="/results" class="header-menu-item">Результаты</div>
                     <div class="header-menu-item header-menu-item-user">
-                        <div class="header-menu-item-user-info">
-                            <ng-container *ngIf="this.user !==''">
-                                <p>{{this.user}}</p>
-                                <p>Выход</p>
-                            </ng-container>
-                        </div>
+
                     </div>
                 </nav>
         </header>
