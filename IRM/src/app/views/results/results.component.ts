@@ -64,11 +64,24 @@ export class ResultsComponent {
     this.resultService.getResults(({ test_id:this.selectedTest ? Number(this.selectedTest) : '', department_id:this.selectedDepartament ? Number(this.selectedDepartament) : ''})).pipe().subscribe((res:any)=>{
       this.results = res
       this.results.forEach((result:any)=>{
-        this.usersAndTest.push(  this.getUserInfo(result.user,result))
+        this.usersAndTest.push(this.getUserInfo(result.user,result))
 
       })
 
     })
+  }
+  selectTest(event:any){
+    console.log(event.target.value)
+    this.results = []
+    this.usersAndTest = []
+    this.getAllResult()
+  }
+  selectDepartament(event:any){
+    this.results = []
+    this.usersAndTest = []
+    console.log(event)
+    this.selectedDepartament = event.target.value
+    this.getAllResult()
   }
   ngOnInit(){
     this.getDepartament()

@@ -18,4 +18,7 @@ export class TestService {
   sendTest(test:any){
     return this.http.post<Test>(`${environments.backProtocol}://${environments.backHost}:${environments.backPort}/api/v1/tests/${test.id}/check/`,test)
   }
+  getAllTest(){
+    return this.http.get<Test>(`${environments.backProtocol}://${environments.backHost}:${environments.backPort}/api/v1/tests/`)
+  }
 }
