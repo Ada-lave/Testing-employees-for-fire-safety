@@ -15,7 +15,7 @@
               <option class="select-item" *ngFor="let departemnt of departemnts; let i = index" [value]="departemnt.id"> {{departemnt.title}}</option>
             </ng-container>
           </select>
-          <button  class="download-button" type="button">Выгрузить файл</button>
+          <button (click)="getResultsFile()"  class="download-button" type="button">Выгрузить файл</button>
          </div>
           <div class="main-container">
             <div class="table-container">

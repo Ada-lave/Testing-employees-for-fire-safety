@@ -8,6 +8,7 @@ import { DepartmentService } from '../../services/department.service';
 import { CommonModule } from '@angular/common';
 import { ThemeService } from '../../services/theme.service';
 import { Result } from '../../models/result';
+import { tap } from 'rxjs';
 @Component({
   selector: 'app-results',
   standalone: true,
@@ -28,9 +29,9 @@ export class ResultsComponent {
   selectedDepartament:string = ''
   usersAndTest:any[] = []
   getAllTest(){
-    this.testService.getThemes().pipe().subscribe((res:any)=>{
-      console.log(res)
+    this.TestServiceDontThem.getAllTest().pipe().subscribe((res:any)=>{
       this.tests = res
+      this.getAllResult()
     })
   }
   getDepartament(){
@@ -52,17 +53,23 @@ export class ResultsComponent {
 
 
     })
-    this.TestServiceDontThem.getTestById(result.test).pipe().subscribe((res:any)=>{
-      user.test_title = res.title
-    })
-
+    if(this.tests){
+      this.tests.forEach((test:any)=>{
+        if(test.id == result.test){
+           user.test_title = test.title
+        }
+      })
+    }
         user.score = `${result.score} из ${result.total}`
     console.log(user)
     return user
   }
   getAllResult(){
-    this.resultService.getResults(({ test_id:this.selectedTest ? Number(this.selectedTest) : '', department_id:this.selectedDepartament ? Number(this.selectedDepartament) : ''})).pipe().subscribe((res:any)=>{
+    this.resultService.getResults(({ test_id:this.selectedTest ? Number(this.selectedTest) : '', department_id:this.selectedDepartament ? Number(this.selectedDepartament) : ''})).pipe(tap(()=>{
+
+    })).subscribe((res:any)=>{
       this.results = res
+
       this.results.forEach((result:any)=>{
         this.usersAndTest.push(this.getUserInfo(result.user,result))
 
@@ -70,8 +77,19 @@ export class ResultsComponent {
 
     })
   }
+  getResultsFile(){
+    let fileLink = this.resultService.getResultsFile(({ test_id:this.selectedTest ? Number(this.selectedTest) : '', department_id:this.selectedDepartament ? Number(this.selectedDepartament) : ''}))
+      console.log(fileLink)
+      window.open(fileLink, '_blank')
+  }
+
   selectTest(event:any){
-    console.log(event.target.value)
+    if(this.tests[event.target.value] && this.tests[event.target.value].id){
+      this.selectedTest = String( this.tests[event.target.value].id)
+    }else{
+      this.selectedTest = ''
+    }
+
     this.results = []
     this.usersAndTest = []
     this.getAllResult()
@@ -86,6 +104,5 @@ export class ResultsComponent {
   ngOnInit(){
     this.getDepartament()
     this.getAllTest()
-    this.getAllResult()
   }
 }

@@ -20,4 +20,8 @@ export class ResultService {
   getResults(queryParams: ResultQueryParams) {
     return this.http.get<Result[]>(`${environments.backProtocol}://${environments.backHost}:${environments.backPort}/api/v1/results`, { params: {...queryParams} })
   }
+  getResultsFile(queryParams: ResultQueryParams) {
+    return (`${environments.backProtocol}://${environments.backHost}:${environments.backPort}/api/v1/results/export?test_id=${queryParams.test_id}&department_id=${queryParams.department_id}`)
+
+  }
 }

@@ -4,4 +4,6 @@
     </div>
 
     <router-outlet></router-outlet>
+    <div *ngIf="this.loaderService.loaderShow" class="loader-wrapper"></div>
+    <div *ngIf="this.loaderService.loaderShow" class="loader"></div>
 </div>
