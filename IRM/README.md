@@ -15,7 +15,7 @@
 Для того что собрать клиентское приложение вам необходимо запустить скрипт `start-build.sh`, так же можно прописать команды ручным методом:
 ```
 docker build -t irm-client .
-docker run --name irm-client -p {port}:80 irm-client
+docker run -d --name irm-client -p {port}:80 irm-client
 ```
 
 > Вместо {port} вам необходимо указать порт который вы прокинете с своего своего сервера.
