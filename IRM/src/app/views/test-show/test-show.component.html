@@ -1,6 +1,6 @@
 <main class="main">
     <section class="content">
-     <div *ngIf="test" class="main-container-wrapper">
+     <div *ngIf="test && !testFinished" class="main-container-wrapper">
          <div class="main-container">
              <span class="title-middle">
                 {{ test.title }}
@@ -62,6 +62,29 @@
              </div>
           </div>
      </div>
+     <div *ngIf="test && testFinished" class="main-container-wrapper">
+      <div class="main-container">
 
+        <span class="title-middle">
+          Результат: {{ testResult.score}} из {{testResult.total}}
+       </span>
+       <div>
+        <span style="padding-top: 1rem; display: flex;" class="title-little">
+          {{ test.title }}
+        </span>
+        <div>
+          <span style="padding-top: 1rem; display: flex;" class="title-little">
+            {{ selectedUser.fio }}
+          </span>
+        </div>
+
+          <div style="padding-top: 3rem;" class="submit-test-wrapper">
+            <button routerLink="/tests" class="submit-test" type="button">Вернутся к темам</button>
+        </div>
+       </div>
+
+      </div>
+
+     </div>
     </section>
  </main>

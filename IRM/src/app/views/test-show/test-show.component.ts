@@ -6,6 +6,7 @@ import { TestService } from '../../services/test.service';
 import { Test } from '../../models/test';
 import { Department } from '../../models/department';
 import { Employee } from '../../models/employee';
+import { LoaderService } from '../../services/loader.service';
 @Component({
   selector: 'app-test-show',
   standalone: true,
@@ -25,9 +26,12 @@ export class TestShowComponent implements OnInit{
   public departmentService:DepartmentService = inject(DepartmentService)
   public test!: Test
   public departemnts:Department[] = []
+  testFinished:boolean = false
+  testResult:any = []
   public selectedDeprtament!:Department|any
   public selectedUser!:Employee
   public testCopy!:any
+  public loaderService:LoaderService = inject(LoaderService)
   getTest() {
     let id = this.route.snapshot.params["id"]
     this.testService.getTestById(id).subscribe((res: any) => {
@@ -74,9 +78,12 @@ export class TestShowComponent implements OnInit{
   }
 
   submit(){
-
+    this.loaderService.show()
     this.testService.sendTest(this.testCopy).pipe().subscribe((res:any)=>{
+      this.testFinished = true
+      this.testResult = res
       console.log(res)
+      this.loaderService.hide()
     })
   }
 
