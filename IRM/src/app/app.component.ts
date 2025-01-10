@@ -1,8 +1,11 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, LOCALE_ID } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './components/header/header.component';
-import { CommonModule } from '@angular/common';
+import { CommonModule, registerLocaleData } from '@angular/common';
 import { LoaderService } from './services/loader.service';
+import localeRu from '@angular/common/locales/ru';
+import { MAT_DATE_LOCALE } from '@angular/material/core';
+registerLocaleData(localeRu);
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -10,6 +13,10 @@ import { LoaderService } from './services/loader.service';
     RouterOutlet,
     HeaderComponent,
     CommonModule
+  ],
+   providers: [
+    { provide: LOCALE_ID, useValue: 'ru' },
+    { provide: MAT_DATE_LOCALE, useValue: 'ru' },
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'

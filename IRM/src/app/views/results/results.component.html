@@ -1,20 +1,35 @@
 <main class="main">
   <section class="content">
       <div class="main-container-wrapper">
+        <div class="calendar">
+          <mat-form-field appearance="fill">
+            <mat-label>Выберите диапазон дат</mat-label>
+            <mat-date-range-input [rangePicker]="picker">
+              <input matStartDate (dateChange)="startDateChange($event)"  placeholder="Начальная" readonly>
+              <input matEndDate placeholder="Конечная" (dateChange)="endDateChange($event)" readonly>
+            </mat-date-range-input>
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-date-range-picker #picker></mat-date-range-picker>
+          </mat-form-field>
+        </div>
+  
         <div class="select-container">
-          <span class="title-little">Фильтр: </span>
-          <select (input)="selectTest($event)" class="select" style="max-width: 300px;"   name="" id="">
-            <option class="select-item" value="">Выберите тест</option>
-            <ng-container>
-              <option class="select-item" *ngFor="let test of tests; let testIndex = index" [value]="testIndex"> {{test.title}}</option>
-            </ng-container>
-          </select>
-           <select (input)="selectDepartament($event)" class="select"  name="" id="">
-            <option class="select-item" value="">Выберите отдел</option>
-            <ng-container *ngIf="departemnts">
-              <option class="select-item" *ngFor="let departemnt of departemnts; let i = index" [value]="departemnt.id"> {{departemnt.title}}</option>
-            </ng-container>
-          </select>
+          
+            <span class="title-little">Фильтр: </span>
+            <select (input)="selectTest($event)" class="select" style="max-width: 300px;"   name="" id="">
+              <option class="select-item" value="">Выберите тест</option>
+              <ng-container>
+                <option class="select-item" *ngFor="let test of tests; let testIndex = index" [value]="testIndex"> {{test.title}}</option>
+              </ng-container>
+            </select>
+             <select (input)="selectDepartament($event)" class="select"  name="" id="">
+              <option class="select-item" value="">Выберите отдел</option>
+              <ng-container *ngIf="departemnts">
+                <option class="select-item" *ngFor="let departemnt of departemnts; let i = index" [value]="departemnt.id"> {{departemnt.title}}</option>
+              </ng-container>
+            </select>
+      
+        
           <button (click)="getResultsFile()"  class="download-button" type="button">Выгрузить файл</button>
          </div>
           <div class="main-container">

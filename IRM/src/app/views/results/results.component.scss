@@ -46,6 +46,17 @@
   border-radius: 10px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
+.calendar{
+  width: 100%;
+  display: flex;
+  align-items: start;
+}
+
+
+.mat-mdc-form-field-infix {
+  font-size: 4px;
+  color: #333;
+}
 
 table {
   width: 100%;
@@ -60,6 +71,7 @@ th, td {
   max-width: 200px;
 
 }
+
 
 th {
   background-color: #4CAF50;

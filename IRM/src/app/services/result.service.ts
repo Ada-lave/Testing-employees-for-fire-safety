@@ -6,6 +6,8 @@ import { environments } from '../../environments/environments';
 interface ResultQueryParams {
   department_id?: number|string
   test_id?: number|string
+  start_date?: number|string,
+  end_date?: number|string
 }
 
 @Injectable({
