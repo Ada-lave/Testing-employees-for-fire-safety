@@ -59,8 +59,8 @@ export class ResultsComponent {
   selectedTest:string = ''
   selectedDepartament:string = ''
   usersAndTest:any[] = []
-  start_date: string = ''
-  end_date: string = ''
+  start_date:any = ''
+  end_date:any = ''
 
   getAllTest(){
     this.TestServiceDontThem.getAllTest().pipe().subscribe((res:any)=>{
@@ -74,13 +74,12 @@ export class ResultsComponent {
     })
   }
   startDateChange(event:any){
-    this.start_date = moment(event.value).format('YYYY-MM-DD: HH:mm')
+    this.start_date = moment(event.value).format('YYYY-MM-DD HH:mm:ss')
     this.end_date = ''
-    console.log('получил даут старта')
     this.getAllResult()
   }
   endDateChange(event:any){
-    this.end_date = moment(event.value).format('YYYY-MM-DD: HH:mm')
+    this.end_date = moment(event.value).format('YYYY-MM-DD HH:mm:ss')
     if(this.end_date !== 'Invalid date'){
       console.log(this.end_date)
       this.getAllResult()
@@ -114,8 +113,9 @@ export class ResultsComponent {
     return user
   }
   getAllResult(){
-    
-    this.resultService.getResults(({ test_id:this.selectedTest ? Number(this.selectedTest) : '', department_id:this.selectedDepartament ? Number(this.selectedDepartament) : '', start_date: this.start_date, end_date:this.end_date})).pipe (  
+    this.usersAndTest = []
+    this.resultService.getResults(({ test_id:this.selectedTest ? Number(this.selectedTest) : '', department_id:this.selectedDepartament ? Number(this.selectedDepartament) : '',
+       start_date: this.start_date, end_date:this.end_date})).pipe (  
       tap(()=>{
 
     }),
@@ -128,14 +128,14 @@ export class ResultsComponent {
       this.results = res
 
       this.results.forEach((result:any)=>{
-        this.usersAndTest.push(this.getUserInfo(result.user,result))
+        this.usersAndTest.push(this.getUserInfo(result.user, result))
 
       })
 
     })
   }
   getResultsFile(){
-    let fileLink = this.resultService.getResultsFile(({ test_id:this.selectedTest ? Number(this.selectedTest) : '', department_id:this.selectedDepartament ? Number(this.selectedDepartament) : ''}))
+    let fileLink = this.resultService.getResultsFile(({ test_id:this.selectedTest ? Number(this.selectedTest) : '', department_id:this.selectedDepartament ? Number(this.selectedDepartament) : '', start_date: this.start_date, end_date:this.end_date}))
       console.log(fileLink)
       window.open(fileLink, '_blank')
   }

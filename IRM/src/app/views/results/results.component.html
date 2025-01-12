@@ -39,6 +39,7 @@
                       <tr>
                           <th>Отдел</th>
                           <th>Фио</th>
+                          <th>Дата</th>
                           <th>Тест</th>
                           <th>Результат</th>
                       </tr>
@@ -47,6 +48,7 @@
                       <tr *ngFor="let user of usersAndTest">
                           <td>{{user.departament_title}}</td>
                           <td>{{user.fio}}</td>
+                          <td>{{user.compleated_at}}</td>
                           <td>{{user.test_title}}</td>
                           <td>{{user.score}}</td>
                       </tr>
