@@ -89,6 +89,8 @@ export class ResultsComponent {
   }
   getUserInfo(userId:any,result:any):any{
     let user:any = {}
+   
+    console.log(result.compleated_at)
     this.departemnts.forEach((departament:any)=>{
       departament.employes.forEach((employee:any) => {
         if(userId == employee.id){
@@ -101,6 +103,7 @@ export class ResultsComponent {
 
 
     })
+
     if(this.tests){
       this.tests.forEach((test:any)=>{
         if(test.id == result.test){
@@ -108,6 +111,7 @@ export class ResultsComponent {
         }
       })
     }
+    user.compleated_at = moment(result.compleated_at).format('YYYY-DD-MM HH:mm')
         user.score = `${result.score} из ${result.total}`
     console.log(user)
     return user

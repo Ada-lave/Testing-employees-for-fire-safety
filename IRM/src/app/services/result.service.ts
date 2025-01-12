@@ -23,7 +23,7 @@ export class ResultService {
     return this.http.get<Result[]>(`${environments.backProtocol}://${environments.backHost}:${environments.backPort}/api/v1/results`, { params: {...queryParams} })
   }
   getResultsFile(queryParams: ResultQueryParams) {
-    return (`${environments.backProtocol}://${environments.backHost}:${environments.backPort}/api/v1/results/export?test_id=${queryParams.test_id}&department_id=${queryParams.department_id}`)
+    return (`${environments.backProtocol}://${environments.backHost}:${environments.backPort}/api/v1/results/export?test_id=${queryParams.test_id}&department_id=${queryParams.department_id}&start_date=${queryParams.start_date}&end_date=${queryParams.end_date}`)
 
   }
 }
