@@ -13,6 +13,9 @@ import { IPdf } from '../../models/pdf';
 })
 export class DocumentsGridComponent implements OnInit {
 @Input() documents:IPdf[] = []
+ngOnChanges(){
+  
+}
 ngOnInit(): void {
 
 }

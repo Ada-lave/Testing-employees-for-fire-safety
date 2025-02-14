@@ -25,7 +25,7 @@
 
                  <ng-container>
                     <div>
-                        <video controls="controls" class="video" *ngFor="let video of videos" src="http://192.144.14.74:8100/{{video.path}}"></video>
+                        <video controls="controls" class="video" *ngFor="let video of videos" src="{{back}}{{video.path}}"></video>
                     </div>
                  </ng-container>
 

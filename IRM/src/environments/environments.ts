@@ -1,5 +1,5 @@
 export const environments = {
   backProtocol: 'http',
-  backHost: '192.144.14.74',
+  backHost: 'localhost',
   backPort: '8100',
 }

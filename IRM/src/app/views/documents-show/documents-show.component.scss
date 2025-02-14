@@ -1,0 +1,24 @@
+.main-container{
+    text-align: center;
+    padding-bottom: 2rem;
+  }
+  .video-container{
+      padding-top: 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5rem;
+  }
+  .video-header{
+      display: flex;
+      margin-top: 2rem;
+  }
+  .video{
+      width: 30rem;
+  }
+  
+  .video-container{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }

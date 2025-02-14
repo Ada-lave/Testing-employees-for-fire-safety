@@ -11,7 +11,7 @@ import { RouterLink } from '@angular/router';
   styleUrl: './document-card.component.scss'
 })
 export class DocumentCardComponent {
-  @Input() document!:IPdf
+  @Input() document!:any
   path!:string
 
   ngOnChanges(){

@@ -17,7 +17,10 @@ export class DocumentsShowComponent implements OnInit{
   activatedRoute:ActivatedRoute = inject(ActivatedRoute)
   public back = `${environments.backProtocol}://${environments.backHost}:${environments.backPort}/static/uploads/`
   path!:string
+  type!:string
   ngOnInit(): void {
     this.path = this.back+this.activatedRoute.snapshot.params['path']
+    this.type = this.activatedRoute.snapshot.params['type']
+    console.log(this.type)
   }
 }

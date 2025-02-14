@@ -31,7 +31,7 @@ export const routes: Routes = [
         path: 'booklets', component:BookletComponent
     },
     {
-      path: 'documentsShow/:path/viwer',component:DocumentsShowComponent
+      path: 'documentsShow/:path/viwer/:type',component:DocumentsShowComponent
     },
     {
       path: 'results',component:ResultsComponent
