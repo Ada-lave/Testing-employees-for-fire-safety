@@ -29,8 +29,10 @@
   padding-top: 0.5rem;
   display: flex;
   text-align: left;
+  max-width: 117px;
+  flex-wrap: wrap;
+  text-wrap: wrap;
   font-family: 'Montserrat-Medium';
-  display: flex;
   justify-content: center;
 }
 .document
